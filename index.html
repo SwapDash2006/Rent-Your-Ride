@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rent Your Ride | Premium Auto</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-left">
+            <span class="brand-name">Rent Your Ride</span>
+        </div>
+        <div class="nav-right" id="nav-account" style="display:none;">
+            <span id="welcome-text"></span>
+            <button id="garageNavBtn" class="btn-alt" onclick="toggleGarageView()" style="margin-right: 15px;">🤍 My Garage (0)</button>
+            <button class="btn-alt" onclick="logout()">Sign Out</button>
+        </div>
+    </div>
+
+    <div id="login-wrapper">
+        <canvas id="particleCanvas"></canvas>
+        <div id="login-section">
+            <h2 style="color: #FFFFFF;">System Login</h2>
+            <p style="margin-bottom: 30px; font-weight: bold; color: #FFFFFF;">Authentication Required.</p>
+            
+            <input type="text" id="username" placeholder="Username (Min 5 chars)">
+            <p id="user-error" class="error-msg">Username must be at least 5 characters.</p>
+
+            <input type="password" id="password" placeholder="Password (Min 8 chars)">
+            <p id="pass-error" class="error-msg">Password must be at least 8 characters.</p>
+            
+            <br>
+            <button class="btn" onclick="validateLogin()" style="font-size: 18px; padding: 15px;">Login</button>
+        </div>
+    </div>
+
+    <div id="app-section">
+
+        <div class="parallax">
+            <canvas id="heroCanvas"></canvas>
+            <div class="parallax-inner">
+                <h1>Your Journey Starts Here.</h1>
+                <p style="color: #FFFFFF; font-size: 20px; letter-spacing: 1px;">From everyday hatchbacks to luxury drives.</p>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" id="searchInput" placeholder="Search by name..." onkeyup="applyFilters()">
+            
+            <select id="typeFilter" onchange="applyFilters()">
+                <option value="All">All Categories</option>
+                <option value="Compact">Compact / Hatchback</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV / MUV</option>
+                <option value="Luxury">Luxury</option>
+            </select>
+            <button id="sortBtn" class="btn-alt" onclick="toggleSort()">Sort by Price</button>
+        </div>
+
+        <div class="container">
+            <div id="vehicle-grid"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

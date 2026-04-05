@@ -1,0 +1,262 @@
+/* ================= GLOBAL SETTINGS ================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000; 
+    background-image: radial-gradient(circle at center, #2a0000 0%, #000000 80%);
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0; 
+    padding: 0;
+    color: #FFFFFF; 
+}
+
+h1, h2, h3 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FF0000; 
+}
+
+/* ================= TOP NAVIGATION BAR ================= */
+.navbar {
+    background-color: #000000;
+    padding: 15px 30px;
+    border-bottom: 2px solid #FF0000;
+    overflow: hidden; 
+}
+
+.nav-left { float: left; }
+
+.brand-name {
+    font-family: 'Jokerman', 'Chalkduster', 'Brush Script MT', 'Comic Sans MS', fantasy;
+    font-size: 42px; 
+    font-weight: 900; 
+    color: #FF0000;
+    vertical-align: middle; 
+    text-transform: uppercase; 
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 0px #FFFFFF, 5px 5px 15px #B30000;
+    transform: skewX(-10deg);
+    display: inline-block;
+}
+
+.nav-right { float: right; margin-top: 15px; }
+
+#welcome-text {
+    margin-right: 20px; 
+    color: #FFFFFF; 
+    font-weight: 900;
+    font-size: 32px; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #FF0000;
+    vertical-align: middle;
+}
+
+/* ================= LOGIN SCREEN STYLES ================= */
+#login-wrapper {
+    position: relative; 
+    height: 800px;
+    overflow: hidden; 
+    text-align: center;
+}
+
+#particleCanvas {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    background-color: transparent;
+}
+
+#login-section {
+    position: relative; 
+    z-index: 1; 
+    margin: 100px auto; 
+    width: 500px; 
+    background-color: #111111; 
+    padding: 50px; 
+    border-radius: 8px; 
+    border-top: 8px solid #FF0000; 
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.2);
+}
+
+#login-section h2 { font-size: 32px; margin-top: 0; color: #FFFFFF; }
+#login-section p { font-size: 16px; color: #FFFFFF; }
+
+input[type="text"], input[type="password"] {
+    width: 90%; 
+    padding: 18px; 
+    margin-bottom: 15px;
+    background-color: #000000; color: #FFFFFF;
+    border: 2px solid #FF0000; font-size: 18px; 
+    border-radius: 4px;
+}
+
+input:focus { border-color: #FFFFFF; outline: none; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+
+.error-msg {
+    color: #FF3333; font-size: 14px; margin-bottom: 15px;
+    font-weight: bold; display: none; text-align: left; margin-left: 20px;
+}
+
+/* ================= MAIN APP LAYOUT ================= */
+#app-section { display: none; }
+
+.parallax {
+    background-color: #111111;
+    background-image: url(''); 
+    height: 350px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: table;
+    width: 100%;
+    border-bottom: 4px solid #FF0000;
+    position: relative;
+    overflow: hidden;
+}
+
+#heroCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; 
+}
+
+.parallax-inner {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0.7); 
+    text-align: center;
+    position: relative;
+    z-index: 1; 
+}
+
+.parallax-inner h1 {
+    color: #FF0000;
+    font-size: 50px;
+    margin: 0;
+    text-shadow: 2px 2px 10px #000000; 
+}
+
+/* ================= FILTER & SEARCH BAR ================= */
+.filter-bar {
+    background-color: #000000; width: 90%; max-width: 1200px; margin: 30px auto; 
+    padding: 20px; border: 1px solid #333333; border-radius: 8px;
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+}
+
+.filter-bar input[type="text"] { margin: 0; width: 300px; }
+.filter-bar select {
+    padding: 14px; font-size: 16px; background-color: #000000;
+    color: #FFFFFF; font-weight: bold; border: 2px solid #FF0000;
+    border-radius: 4px; cursor: pointer;
+}
+
+/* ================= CAR GRID DISPLAY ================= */
+.container { width: 95%; max-width: 1400px; margin: 0 auto; padding-bottom: 50px; }
+
+#vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+/* ================= INDIVIDUAL CAR CARDS ================= */
+.card {
+    background-color: #050505; 
+    color: #FFFFFF; 
+    padding: 20px;
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+    border: 1px solid #333333; 
+    border-radius: 12px; 
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; 
+    height: 100%; 
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    border-color: #FF0000;
+    box-shadow: 0px 15px 25px rgba(255, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%; 
+    height: 200px; 
+    margin-bottom: 15px;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-content { flex-grow: 1; }
+
+.card h3 { 
+    color: #FFFFFF; margin-top: 0; margin-bottom: 5px; font-size: 22px; 
+    text-align: left; transition: color 0.3s;
+}
+.card:hover h3 { color: #FF0000; }
+
+.rating { color: #FF0000; font-weight: bold; font-size: 14px; margin-bottom: 15px; }
+
+.specs-grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0 0 15px 0; 
+    color: #CCCCCC; 
+    font-size: 14px;
+}
+.card:hover .specs-grid { color: #FFFFFF; }
+
+.features-text {
+    color: #888888; font-size: 13px; margin: 0 0 20px 0; font-style: italic; line-height: 1.4;
+}
+
+.card-actions { margin-top: auto; }
+
+.price { color: #FF0000; font-size: 24px; font-weight: bold; margin-bottom: 15px; text-align: center; }
+.price span { font-size: 14px; color: #888888; font-weight: normal; }
+
+/* ================= BUTTON STYLES ================= */
+.btn {
+    background-color: #FF0000; color: #FFFFFF; padding: 12px;
+    font-size: 16px; font-weight: bold; border: none; cursor: pointer; 
+    text-transform: uppercase; width: 100%; margin-bottom: 8px;
+    transition: background-color 0.3s; border-radius: 6px;
+}
+.btn:hover { background-color: #B30000; }
+
+.btn-garage {
+    background-color: #000000; color: #FFFFFF; padding: 12px;
+    font-size: 16px; font-weight: bold; border: 2px solid #808080; cursor: pointer; 
+    text-transform: uppercase; width: 100%; border-radius: 6px; transition: all 0.3s;
+}
+.btn-garage:hover { background-color: #FF0000; border-color: #FF0000; color: #FFFFFF; }
+
+.btn-garage-saved {
+    background-color: #B30000; color: #FFFFFF; padding: 12px;
+    font-size: 16px; font-weight: bold; border: 2px solid #B30000; cursor: pointer; 
+    text-transform: uppercase; width: 100%; border-radius: 6px;
+}
+
+.btn-alt {
+    background-color: #FF0000; color: #FFFFFF; padding: 14px 20px;
+    font-size: 16px; font-weight: bold; border: none; cursor: pointer; 
+    text-transform: uppercase; width: auto; vertical-align: middle; border-radius: 6px; margin: 0;
+}
+.btn-alt:hover { background-color: #B30000; }
+
+#garageNavBtn { background-color: #000000; border: 2px solid #FF0000; color: #FFFFFF; }
+#garageNavBtn:hover { background-color: #FF0000; }
+#garageNavBtn.active-view { background-color: #FF0000; color: #FFFFFF; }
